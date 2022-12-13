@@ -21,11 +21,16 @@ typedef struct maxbinheap {
 Maxbinheap newMaxbinheap(unsigned int capacity);
 // free memory
 void destroyMaxbinheap(Maxbinheap *heap);
+// create a new binary heap from the array
+Maxbinheap fromArray(const int* array, unsigned int len);
 
-void swim(Maxbinheap *heap, int k);
-
-void sink(Maxbinheap *heap, int k);
-
+// add new element
 void insert(Maxbinheap *heap, int element);
+
+// remove maximum element
+int removeMax(Maxbinheap *heap);
+
+// sort array using an inplace binary heap
+void heapsort(int* array, const int len);
 
 #endif

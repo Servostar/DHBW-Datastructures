@@ -1,16 +1,43 @@
 #include "binheap/binheap.h"
+#include "hashtable/hashtable.h"
 #include "utils/arrays.h"
 
-int main() {
-  Maxbinheap heap = newMaxbinheap(40);
+void testMaxbinheap() {
+  // random array of values
+  const int array[] = { 1, 2, 3, 4, 5, 6, 7 };
+  
+  // sorted binary max heap
+  Maxbinheap heap = fromArray(array, sizeof(array) / sizeof(int) + 1);
 
-  insert(&heap, 1);
-  insert(&heap, 3);
   insert(&heap, 8);
-  insert(&heap, 4);
-
+    
   print_array(heap.array, heap.size);
 
+  // free memory
   destroyMaxbinheap(&heap);
+}
+
+void testHashmap() {
+  Hashmap table = new_hashmap(10);
+
+  put(&table, "Henry", 14);
+  put(&table, "Henry", 17);
+  put(&table, "Jenifer", 35);
+  put(&table, "Harry", 42);
+
+  hashmap_remove(&table, "Jenifer");
+
+  print_hashmap(&table);
+
+  destroy_hashmap(&table);
+}
+
+int main() {
+  // testMaxbinheap();
+
+  // testHashmap();
+
+  
+
   return 0;
 }
