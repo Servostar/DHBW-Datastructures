@@ -5,6 +5,9 @@ add_executable(
   
   src/main.c
 
+  src/bst/bst.h
+  src/bst/bst.c
+
   src/hashtable/hashtable.c
   src/hashtable/hashtable.h
 

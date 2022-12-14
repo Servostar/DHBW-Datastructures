@@ -1,5 +1,6 @@
 #include "binheap/binheap.h"
 #include "hashtable/hashtable.h"
+#include "bst/bst.h"
 #include "utils/arrays.h"
 
 void testMaxbinheap() {
@@ -32,12 +33,28 @@ void testHashmap() {
   destroy_hashmap(&table);
 }
 
+void test_bst() {
+  Bst bst = bst_new();
+
+  bst_insert(&bst, 'v');
+  bst_insert(&bst, 'b');
+  bst_insert(&bst, 'a');
+  bst_insert(&bst, 'd');
+
+  bst_remove(&bst, 'v');
+
+  printf("found: %d\n", bst_search(&bst, 'a') );
+  printf("max: %c\n", bst_max(&bst));
+
+  bst_destroy(&bst);
+}
+
 int main() {
   // testMaxbinheap();
 
   // testHashmap();
 
-  
+  test_bst();
 
   return 0;
 }
